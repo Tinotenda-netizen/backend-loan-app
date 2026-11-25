@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const dashboardRoutes = require("./routes/dashboard");
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 function logRequests(req, res, next) {
@@ -28,4 +29,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Something went wrong on our end" });
 });
 
-app.listen(3000, () => console.log("API running on port:3000"));
+app.listen(PORT, () => console.log("API running on port:3000"));
